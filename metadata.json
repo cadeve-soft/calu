@@ -1,0 +1,6 @@
+
+{
+  "name": "Daily Planner & Weather",
+  "description": "A calendar application to set events, view daily weather forecasts, and receive mock WhatsApp reminders & daily updates. Data is stored locally in your browser.",
+  "requestFramePermissions": []
+}

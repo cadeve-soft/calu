@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Planner & Weather</title>
+  
+  <!-- PWA Manifest and Theme Color -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#831843"> <!-- rose-700 -->
+
+  <!-- iOS specific PWA meta tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Planner">
+  <link rel="apple-touch-icon" href="/icons/icon-192x192.png"> <!-- Example: ensure you have this icon -->
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom scrollbar for wine theme */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #4c0519; /* dark rose-900/950 */
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #831843; /* rose-700 */
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #9d174d; /* rose-600 */
+    }
+    body {
+      font-family: 'Inter', sans-serif; /* A clean, modern font */
+    }
+    /* Add Inter font from Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "@heroicons/react/": "https://esm.sh/@heroicons/react@^2.2.0/"
+  }
+}
+</script>
+</head>
+<body class="bg-rose-950">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+  
+  <!-- Service Worker Registration Script -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(registration => {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          })
+          .catch(error => {
+            console.log('ServiceWorker registration failed: ', error);
+          });
+      });
+    }
+  </script>
+</body>
+</html>
+<link rel="stylesheet" href="index.css">
+<script src="index.tsx" type="module"></script>
